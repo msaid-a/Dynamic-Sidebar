@@ -81,8 +81,8 @@ const SubNavItem = ({
               <>
                 <SubSubNavItem
                   submenu={val.childs}
-                  disabled={!val.isAllowed}
-                  hidden={!val.isShowed}
+                  disabled={!val.isAllowed || disabled}
+                  hidden={!val.isShowed || hidden}
                 >
                   {val.id}
                 </SubSubNavItem>

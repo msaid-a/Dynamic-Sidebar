@@ -7,7 +7,7 @@ const todosReducer = (state : linkReduxState = linkDefaultState, action : AnyAct
         case SET_MENU:
           return {
             ...state,
-            todos: action.payload
+            menu: action.payload
           };
         default:
           return state;
