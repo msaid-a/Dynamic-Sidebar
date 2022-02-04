@@ -55,7 +55,7 @@ const NavItem = ({ children, submenu, disabled, hidden }: NavItemProps) => {
               style={
                 disabled
                   ? {
-                      opacity: 0.5,
+                      color: "grey",
                       pointerEvents: "none",
                       cursor: "not-allowed",
                     }
@@ -71,7 +71,7 @@ const NavItem = ({ children, submenu, disabled, hidden }: NavItemProps) => {
               style={
                 disabled
                   ? {
-                      opacity: 0.5,
+                      color: "grey",
                       pointerEvents: "none",
                       cursor: "not-allowed",
                       textDecoration: "none",

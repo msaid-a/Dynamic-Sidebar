@@ -49,6 +49,16 @@ const SubSubNavItem = ({
               role="group"
               cursor="pointer"
               justifyContent="space-between"
+              style={
+                disabled
+                  ? {
+                      color: "grey",
+                      pointerEvents: "none",
+                      cursor: "not-allowed",
+                      textDecoration: "none",
+                    }
+                  : { textDecoration: "none" }
+              }
               _hover={{
                 bg: "cyan.400",
                 color: "white",

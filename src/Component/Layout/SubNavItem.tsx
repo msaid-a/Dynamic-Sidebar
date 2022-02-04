@@ -54,6 +54,16 @@ const SubNavItem = ({
                 bg: "cyan.400",
                 color: "white",
               }}
+              style={
+                disabled
+                  ? {
+                      color: 'grey',
+                      pointerEvents: "none",
+                      cursor: "not-allowed",
+                      textDecoration: "none",
+                    }
+                  : { textDecoration: "none" }
+              }
               textColor={isOpen ? "cyan.400" : "inherit"}
               borderLeft={"3px solid #0bc5ea"}
             >
@@ -66,7 +76,7 @@ const SubNavItem = ({
               style={
                 disabled
                   ? {
-                      opacity: 0.5,
+                      color: "grey",
                       pointerEvents: "none",
                       cursor: "not-allowed",
                       textDecoration: "none",

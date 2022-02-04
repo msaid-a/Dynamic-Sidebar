@@ -29,7 +29,7 @@ const Main = () => {
       }
     } else if (index2 || index2 === 0) {
       newLinkItems[index].childs[index2].isAllowed = event;
-    } else if (index && !index2 && !index3) {
+    } else if (index && !index2 && !index3 || index === 0) {
       newLinkItems[index].isAllowed = event;
     }
 
@@ -50,7 +50,7 @@ const Main = () => {
       }
     } else if (index2 || index2 === 0) {
       newLinkItems[index].childs[index2].isShowed = event;
-    } else if (index && !index2 && !index3) {
+    } else if (index && !index2 && !index3 || index === 0) {
       newLinkItems[index].isShowed = event;
     }
 
