@@ -40,20 +40,7 @@ const SubNavItem = ({
     <>
       {hidden ? null : (
         <>
-          <Link
-            href={"#"}
-            style={
-              disabled
-                ? {
-                    opacity: 0.5,
-                    pointerEvents: "none",
-                    cursor: "not-allowed",
-                    textDecoration: "none",
-                  }
-                : { textDecoration: "none" }
-            }
-            _focus={{ boxShadow: "none" }}
-          >
+          {submenu ? (
             <Flex
               onClick={() => setIsOpen(!isOpen)}
               align="center"
@@ -73,7 +60,42 @@ const SubNavItem = ({
               {children}
               {submenu && <>{isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}</>}
             </Flex>
-          </Link>
+          ) : (
+            <Link
+              href={"#"}
+              style={
+                disabled
+                  ? {
+                      opacity: 0.5,
+                      pointerEvents: "none",
+                      cursor: "not-allowed",
+                      textDecoration: "none",
+                    }
+                  : { textDecoration: "none" }
+              }
+              _focus={{ boxShadow: "none" }}
+            >
+              <Flex
+                onClick={() => setIsOpen(!isOpen)}
+                align="center"
+                p="4"
+                mx="4"
+                pl={8}
+                role="group"
+                cursor="pointer"
+                justifyContent="space-between"
+                _hover={{
+                  bg: "cyan.400",
+                  color: "white",
+                }}
+                textColor={isOpen ? "cyan.400" : "inherit"}
+                borderLeft={"3px solid #0bc5ea"}
+              >
+                {children}
+                {submenu && <>{isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}</>}
+              </Flex>
+            </Link>
+          )}
 
           {isOpen &&
             submenu &&

@@ -37,20 +37,7 @@ const NavItem = ({ children, submenu, disabled, hidden }: NavItemProps) => {
     <>
       {hidden ? null : (
         <>
-          <Link
-            href="#"
-            style={
-              disabled
-                ? {
-                    opacity: 0.5,
-                    pointerEvents: "none",
-                    cursor: "not-allowed",
-                    textDecoration: "none",
-                  }
-                : { textDecoration: "none" }
-            }
-            _focus={{ boxShadow: "none" }}
-          >
+          {submenu ? (
             <Flex
               onClick={() => setIsOpen(!isOpen)}
               align="center"
@@ -78,7 +65,50 @@ const NavItem = ({ children, submenu, disabled, hidden }: NavItemProps) => {
               {children}
               {submenu && <>{isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}</>}
             </Flex>
-          </Link>
+          ) : (
+            <Link
+              href="#"
+              style={
+                disabled
+                  ? {
+                      opacity: 0.5,
+                      pointerEvents: "none",
+                      cursor: "not-allowed",
+                      textDecoration: "none",
+                    }
+                  : { textDecoration: "none" }
+              }
+              _focus={{ boxShadow: "none" }}
+            >
+              <Flex
+                onClick={() => setIsOpen(!isOpen)}
+                align="center"
+                p="4"
+                mx="4"
+                role="group"
+                cursor="pointer"
+                _hover={{
+                  bg: "cyan.400",
+                  color: "white",
+                }}
+                textColor={isOpen ? "cyan.400" : "inherit"}
+                borderLeft={isOpen ? "3px solid #0bc5ea" : ""}
+                justifyContent="space-between"
+                style={
+                  disabled
+                    ? {
+                        opacity: 0.5,
+                        pointerEvents: "none",
+                        cursor: "not-allowed",
+                      }
+                    : {}
+                }
+              >
+                {children}
+                {submenu && <>{isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}</>}
+              </Flex>
+            </Link>
+          )}
 
           {isOpen &&
             submenu &&
